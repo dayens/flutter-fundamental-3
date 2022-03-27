@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fundamental_3/data/db/database_helper.dart';
+import 'package:flutter_fundamental_3/provider/database_provider.dart';
 import 'package:flutter_fundamental_3/provider/restaurant_provider.dart';
 import 'package:flutter_fundamental_3/provider/search_provider.dart';
 import 'package:flutter_fundamental_3/ui/detail_screen.dart';
@@ -25,6 +27,9 @@ class MyApp extends StatelessWidget {
         ),
          ChangeNotifierProvider<SearchProvider>(
            create: (_) => SearchProvider(apiService: ApiService()),
+        ),
+        ChangeNotifierProvider<DatabaseProvider>(
+          create: (_) => DatabaseProvider(databaseHelper: DatabaseHelper()),
         )
       ],
       child: MaterialApp(
