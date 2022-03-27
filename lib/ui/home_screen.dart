@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fundamental_3/provider/scheduling_provider.dart';
+import 'package:flutter_fundamental_3/ui/detail_screen.dart';
 import 'package:flutter_fundamental_3/ui/restaurant_list_page.dart';
 import 'package:flutter_fundamental_3/ui/setting_page.dart';
+import 'package:flutter_fundamental_3/utils/notification_helper.dart';
 import 'package:flutter_fundamental_3/widgets/platform_widget.dart';
+import 'package:provider/provider.dart';
 import 'bookmark_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   static const routeName = '/home_screen';
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -18,12 +23,16 @@ class _HomeScreenState extends State<HomeScreen> {
   static const String _bookmarksText = 'Bookmarks';
   static const String _settingsText = 'Setting';
 
+  final NotificationHelper _notificationHelper = NotificationHelper();
 
 
   final List<Widget> _listWidget = [
     const RestaurantListPage(),
     const BookmarkPage(),
-    const SettingPage(),
+    ChangeNotifierProvider<SchedulingProvider>(
+      create: (_) => SchedulingProvider(),
+      child: SettingPage(),
+    ),
   ];
 
   final List<BottomNavigationBarItem> _bottomNavBarItems = [
@@ -64,5 +73,18 @@ class _HomeScreenState extends State<HomeScreen> {
       androidBuilder: _buildAndroid,
       iosBuilder: _buildAndroid,
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _notificationHelper
+        .configureSelectNotificationSubject(DetailScreen.routeName);
+  }
+
+  @override
+  void dispose() {
+    selectNotificationSubject.close();
+    super.dispose();
   }
 }

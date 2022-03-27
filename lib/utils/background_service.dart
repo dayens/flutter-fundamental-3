@@ -2,6 +2,7 @@ import 'dart:isolate';
 import 'dart:ui';
 import 'package:flutter_fundamental_3/data/api_service/api_service.dart';
 import 'package:flutter_fundamental_3/utils/notification_helper.dart';
+import '../main.dart';
 
 final ReceivePort port = ReceivePort();
 
@@ -24,7 +25,6 @@ class BackgroundService {
   }
 
   static Future<void> callback() async {
-    print('Alarm fired!');
     final NotificationHelper _notificationHelper = NotificationHelper();
     var result = await ApiService().listRestaurant();
     await _notificationHelper.showNotification(flutterLocalNotificationsPlugin, result);
