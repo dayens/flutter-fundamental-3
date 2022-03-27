@@ -52,19 +52,7 @@ class CardRestaurant extends StatelessWidget {
                             ),
                             Column(
                               children: [
-                                ListTile(
-                                  trailing: isBookmarked
-                                      ? IconButton(
-                                    icon: Icon(Icons.bookmark),
-                                    color: Theme.of(context).accentColor,
-                                    onPressed: () => provider.removeRestaurant(restaurant.id),
-                                  )
-                                      : IconButton(
-                                    icon: Icon(Icons.bookmark_border),
-                                    color: Theme.of(context).accentColor,
-                                    onPressed: () => provider.addRestaurant(restaurant),
-                                  ),
-                                ),
+
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: <Widget>[
@@ -78,6 +66,19 @@ class CardRestaurant extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Expanded(
+                      child: ListTile(
+                        trailing: isBookmarked
+                            ? IconButton(
+                                icon: Icon(Icons.bookmark, color: Colors.pink,),
+                                onPressed: () => provider.removeRestaurant(restaurant.id),
+                            )
+                            : IconButton(
+                                icon: Icon(Icons.bookmark_border, color: Colors.black,),
+                                onPressed: () => provider.addRestaurant(restaurant),
+                            ),
+                      ),
+                    )
                   ],
                 ),
               ),
