@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_fundamental_3/ui/restaurant_list_page.dart';
 import 'package:flutter_fundamental_3/widgets/platform_widget.dart';
@@ -6,6 +5,7 @@ import 'bookmark_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+  static const routeName = '/home_screen';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../data/api_service/api_service.dart';
 import '../data/model/restaurant.dart';
 import '../utils/result_state.dart';
 
-class RestoProvider extends ChangeNotifier {
+class RestaurantProvider extends ChangeNotifier {
   final ApiService apiService;
 
-  RestoProvider ({required this.apiService}) {
+  RestaurantProvider ({required this.apiService}) {
     _fetchAllRestaurant();
   }
 
