@@ -1,3 +1,4 @@
+import '../model/detail_restaurant.dart';
 import '../model/restaurant.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -18,15 +19,15 @@ class ApiService {
     }
   }
 
-  // Future<DetailResult> detailRestaurant(String id) async {
-  //   final response = await http.get(Uri.parse(_baseUrl + _detail + '$id'));
-  //   if (response.statusCode == 200) {
-  //     return DetailResult.fromJson(json.decode(response.body));
-  //   } else {
-  //     throw Exception(_throw);
-  //   }
-  // }
-  //
+  Future<DetailResult> detailRestaurant(String id) async {
+    final response = await http.get(Uri.parse(_baseUrl + _detail + '$id'));
+    if (response.statusCode == 200) {
+      return DetailResult.fromJson(json.decode(response.body));
+    } else {
+      throw Exception(_throw);
+    }
+  }
+
   // Future<RestaurantSearch> searchRestaurant(String query) async {
   //   final response =
   //   await http.get(Uri.parse(_baseUrl + _search + query));

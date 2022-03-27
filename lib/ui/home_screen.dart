@@ -13,21 +13,21 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _bottomNavIndex = 0;
-  static const String _headlineText = 'Headline';
+  static const String _homeText = 'Home';
 
-  List<Widget> _listWidget = [
+  final List<Widget> _listWidget = [
     RestaurantListPage(),
     BookmarkPage(),
   ];
 
-  List<BottomNavigationBarItem> _bottomNavBarItems = [
-    BottomNavigationBarItem(
-      icon: Icon(Icons.public),
-      label: _headlineText,
+  final List<BottomNavigationBarItem> _bottomNavBarItems = [
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.restaurant),
+      label: _homeText,
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.settings),
-      label: _headlineText,
+      label: _homeText,
     ),
   ];
 
