@@ -14,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _bottomNavIndex = 0;
   static const String _homeText = 'Home';
+  static const String _bookmarksText = 'Bookmarks';
+
 
   final List<Widget> _listWidget = [
     const RestaurantListPage(),
@@ -26,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
       label: _homeText,
     ),
     const BottomNavigationBarItem(
-      icon: Icon(Icons.settings),
-      label: _homeText,
+      icon: Icon(Icons.bookmarks),
+      label: _bookmarksText,
     ),
   ];
 
@@ -47,17 +49,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  // Widget _buildIos(BuildContext context) {
-  //   return Scaffold(
-  //     body: _listWidget[_bottomNavIndex],
-  //     bottomNavigationBar: BottomNavigationBar(
-  //       currentIndex: _bottomNavIndex,
-  //       onTap: _onBottomNavTaped,
-  //       items: _bottomNavBarItems,
-  //     ),
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
