@@ -4,9 +4,9 @@ import '../ui/detail_screen.dart';
 
 class CardRestaurant extends StatelessWidget {
   final Restaurant restaurant;
-  static final String _baseUrlImage = 'https://restaurant-api.dicoding.dev/images/small/';
+  static const String _baseUrlImage = 'https://restaurant-api.dicoding.dev/images/small/';
 
-  CardRestaurant({required this.restaurant});
+  const CardRestaurant({required this.restaurant});
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +32,9 @@ class CardRestaurant extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       restaurant.name,
-                      style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
@@ -45,7 +45,7 @@ class CardRestaurant extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Icon(Icons.star_rate, color: Colors.orange, size: 16,),
+                        const Icon(Icons.star_rate, color: Colors.orange, size: 16,),
                         Text(restaurant.rating)
                       ],
                     )

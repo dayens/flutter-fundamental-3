@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fundamental_3/provider/restaurant_provider.dart';
+import 'package:flutter_fundamental_3/provider/search_provider.dart';
 import 'package:flutter_fundamental_3/ui/detail_screen.dart';
 import 'package:flutter_fundamental_3/ui/home_screen.dart';
+import 'package:flutter_fundamental_3/ui/search_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'data/api_service/api_service.dart';
@@ -21,17 +23,17 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<RestaurantProvider>(
           create: (_) => RestaurantProvider(apiService: ApiService()),
         ),
-        // ChangeNotifierProvider<SearchRestaurantProvider>(
-        //   create: (_) => SearchRestaurantProvider(apiService: ApiService()),
-        // )
+         ChangeNotifierProvider<SearchProvider>(
+           create: (_) => SearchProvider(apiService: ApiService()),
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Fundamental 2',
         theme: ThemeData(),
-        home: HomeScreen(),
+        home: const HomeScreen(),
         routes: {
-          HomeScreen.routeName: (context) => HomeScreen(),
-          // SearchScreen.routeName: (context) => SearchScreen(),
+          HomeScreen.routeName: (context) => const HomeScreen(),
+          SearchScreen.routeName: (context) => SearchScreen(),
           DetailScreen.routeName: (context) => DetailScreen(
               restaurant: ModalRoute.of(context)?.settings.arguments as Restaurant
           ),

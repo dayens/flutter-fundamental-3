@@ -6,6 +6,8 @@ import '../widgets/card_restaurant.dart';
 import '../widgets/platform_widget.dart';
 
 class RestaurantListPage extends StatelessWidget {
+  const RestaurantListPage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class RestaurantListPage extends StatelessWidget {
     return Consumer<RestaurantProvider>(
       builder: (context, state, _) {
         if (state.state == ResultState.loading) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else {
@@ -49,7 +51,7 @@ class RestaurantListPage extends StatelessWidget {
               child: Text(state.message),
             );
           } else {
-            return Center(
+            return const Center(
               child: Text(''),
             );
           }

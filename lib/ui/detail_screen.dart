@@ -10,7 +10,7 @@ import 'detail_page.dart';
 class DetailScreen extends StatelessWidget {
   static const routeName = '/detail_screen';
 
-  DetailScreen ({required this.restaurant});
+  const DetailScreen ({required this.restaurant});
   final Restaurant restaurant;
 
   Widget _buildList (BuildContext context) {
@@ -18,12 +18,12 @@ class DetailScreen extends StatelessWidget {
       create: (_) => DetailProvider(apiService: ApiService(), resto: restaurant.id),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Detail Restaurant'),
+          title: const Text('Detail Restaurant'),
         ),
         body: Consumer<DetailProvider>(
             builder: (context, data, _) {
               if (data.state == ResultState.loading) {
-                return Center(child: CircularProgressIndicator(),);
+                return const Center(child: CircularProgressIndicator(),);
               } else if (data.state == ResultState.hasData) {
                 return Scaffold(
                   body: DetailPage(restaurant: data.detailResult.restaurants),
@@ -33,7 +33,7 @@ class DetailScreen extends StatelessWidget {
               } else if (data.state == ResultState.error) {
                 return Center(child: Text(data.message));
               } else {
-                return Center(child: Text(''));
+                return const Center(child: Text(''));
               }
             }
         ),

@@ -7,7 +7,7 @@ class DetailPage extends StatelessWidget {
 
   final DetailRestaurant restaurant;
 
-  DetailPage ({required this.restaurant});
+  const DetailPage ({required this.restaurant});
 
 
   @override
@@ -17,19 +17,19 @@ class DetailPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: 16, left: 1, right: 1),
+            margin: const EdgeInsets.only(top: 16, left: 1, right: 1),
             child: Image.network(_urlPicture + restaurant.pictureId,),
           ),
           Container(
-            margin: EdgeInsets.only(top: 32, left: 8, right: 8),
+            margin: const EdgeInsets.only(top: 32, left: 8, right: 8),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2)
             ),
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Center(
               child: Text(
                 restaurant.name,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
               ),
             ),
           ),
@@ -41,21 +41,21 @@ class DetailPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 2)
                   ),
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Center(child: Text(restaurant.city)),
                 ),
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.only(top: 16, left: 8, right: 8),
+                  margin: const EdgeInsets.only(top: 16, left: 8, right: 8),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 2)
                   ),
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.star_rate, size: 16, color: Colors.orange,),
+                      const Icon(Icons.star_rate, size: 16, color: Colors.orange,),
                       Text(restaurant.rating.toString())
                     ],
                   ),
@@ -64,11 +64,11 @@ class DetailPage extends StatelessWidget {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: 8, left: 8, right: 8),
+            margin: const EdgeInsets.only(top: 8, left: 8, right: 8),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2)
             ),
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Text(restaurant.description),
           ),
           Row(
@@ -76,11 +76,11 @@ class DetailPage extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 2)
                   ),
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Row(
@@ -99,11 +99,11 @@ class DetailPage extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 2)
                   ),
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                       children: [
                         Row(
