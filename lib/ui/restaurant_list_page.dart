@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fundamental_3/ui/search_screen.dart';
 import 'package:provider/provider.dart';
 import '../provider/restaurant_provider.dart';
 import '../utils/result_state.dart';
@@ -19,6 +20,17 @@ class RestaurantListPage extends StatelessWidget {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Restaurant'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              Navigator.pushNamed(context, SearchScreen.routeName);
+            },
+          ),
+        ],
+      ),
       body: _buildList(context),
     );
   }

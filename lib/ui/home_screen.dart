@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fundamental_3/ui/restaurant_list_page.dart';
-import 'package:flutter_fundamental_3/ui/search_screen.dart';
 import 'package:flutter_fundamental_3/widgets/platform_widget.dart';
 import 'bookmark_page.dart';
 
@@ -40,17 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildAndroid(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Restaurant'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              Navigator.pushNamed(context, SearchScreen.routeName);
-            },
-          )
-        ],
-      ),
       body: _listWidget[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _bottomNavIndex,
