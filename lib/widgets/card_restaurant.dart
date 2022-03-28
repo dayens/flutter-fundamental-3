@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fundamental_3/provider/database_provider.dart';
 import 'package:provider/provider.dart';
+import '../common/navigation.dart';
 import '../data/model/restaurant.dart';
 import '../ui/detail_screen.dart';
 
@@ -20,8 +21,7 @@ class CardRestaurant extends StatelessWidget {
             var isBookmarked = snapshot.data ?? false;
             return InkWell(
               onTap: () {
-                Navigator.pushNamed(context, DetailScreen.routeName,
-                    arguments: restaurant);
+                Navigation.intentWithData(DetailScreen.routeName, restaurant);
               },
               child: Card(
                 child: Row(

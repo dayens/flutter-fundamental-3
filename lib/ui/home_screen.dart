@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fundamental_3/data/preferences/preferences_helper.dart';
+import 'package:flutter_fundamental_3/provider/preferences_provider.dart';
 import 'package:flutter_fundamental_3/provider/scheduling_provider.dart';
 import 'package:flutter_fundamental_3/ui/detail_screen.dart';
 import 'package:flutter_fundamental_3/ui/restaurant_list_page.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_fundamental_3/ui/setting_page.dart';
 import 'package:flutter_fundamental_3/utils/notification_helper.dart';
 import 'package:flutter_fundamental_3/widgets/platform_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'bookmark_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,10 +32,19 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _listWidget = [
     const RestaurantListPage(),
     const BookmarkPage(),
-    ChangeNotifierProvider<SchedulingProvider>(
-      create: (_) => SchedulingProvider(),
+
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<SchedulingProvider>(
+          create: (_) => SchedulingProvider(),
+        ),
+        ChangeNotifierProvider<PreferencesProvider>(
+          create: (_) => PreferencesProvider(preferencesHelper: PreferencesHelper(
+            sharedPreferences: SharedPreferences.getInstance())),
+        )
+      ],
       child: SettingPage(),
-    ),
+    )
   ];
 
   final List<BottomNavigationBarItem> _bottomNavBarItems = [

@@ -43,7 +43,7 @@ class NotificationHelper {
       ) async {
     var _channelId = "1";
     var _channelName = "channel_01";
-    var _channelDescription = "restaurant update channel";
+    // var _channelDescription = "restaurant update channel";
 
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
       _channelId, _channelName,

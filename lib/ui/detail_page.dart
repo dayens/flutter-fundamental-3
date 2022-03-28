@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../data/model/detail_restaurant.dart';
 
 class DetailPage extends StatelessWidget {
