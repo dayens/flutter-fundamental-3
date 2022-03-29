@@ -1,5 +1,4 @@
 import 'package:flutter_fundamental_3/data/model/search_result.dart';
-
 import '../model/detail_restaurant.dart';
 import '../model/restaurant.dart';
 import 'package:http/http.dart' as http;

@@ -15,7 +15,9 @@ class BookmarkPage extends StatelessWidget {
       ),
       body: Consumer<DatabaseProvider>(
         builder: (context, provider, child) {
-          if (provider.state == ResultState.hasData) {
+          if (provider.state == ResultState.loading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if(provider.state == ResultState.hasData) {
             return ListView.builder(
               itemCount: provider.restaurant.length,
               itemBuilder: (context, index) {
