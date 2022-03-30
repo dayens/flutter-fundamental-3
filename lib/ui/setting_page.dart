@@ -16,7 +16,7 @@ class SettingPage extends StatelessWidget {
         builder: (context, provider, child) {
           return Material(
             child: ListTile(
-              title: Text('Scheduling News'),
+              title: const Text('Scheduling News'),
               trailing: Consumer<SchedulingProvider>(
                 builder: (context, scheduled, _) {
                   return Switch.adaptive(

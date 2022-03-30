@@ -22,32 +22,30 @@ class DetailPage extends StatelessWidget {
             margin: const EdgeInsets.only(top: 16, left: 1, right: 1),
             child: Image.network(_urlPicture + restaurant.pictureId,),
           ),
-          Container(
-            child: Consumer<DatabaseProvider>(
-              builder: (context, provider, child) {
-                return FutureBuilder<bool>(
-                    future: provider.isBookmarked(restaurant.id),
-                    builder: (context, snapshot) {
-                      var isBookmarked = snapshot.data ?? false;
-                      return ListTile(
-                        trailing: isBookmarked
-                            ? IconButton(
-                          icon: const Icon(Icons.bookmark, color: Colors.pink,),
-                          onPressed: () =>
-                              provider.removeRestaurant(restaurant.id),
-                        )
-                            : IconButton(
-                          icon: const Icon(
-                            Icons.bookmark_border, color: Colors.black,),
-                          onPressed: () =>
-                              provider.addRestaurant(
-                                  convertData(restaurant)),
-                        ),
-                      );
-                    }
-                );
-              }
-            ),
+          Consumer<DatabaseProvider>(
+            builder: (context, provider, child) {
+              return FutureBuilder<bool>(
+                  future: provider.isBookmarked(restaurant.id),
+                  builder: (context, snapshot) {
+                    var isBookmarked = snapshot.data ?? false;
+                    return ListTile(
+                      trailing: isBookmarked
+                          ? IconButton(
+                        icon: const Icon(Icons.bookmark, color: Colors.pink,),
+                        onPressed: () =>
+                            provider.removeRestaurant(restaurant.id),
+                      )
+                          : IconButton(
+                        icon: const Icon(
+                          Icons.bookmark_border, color: Colors.black,),
+                        onPressed: () =>
+                            provider.addRestaurant(
+                                convertData(restaurant)),
+                      ),
+                    );
+                  }
+              );
+            }
           ),
           Container(
             margin: const EdgeInsets.only(top: 32, left: 8, right: 8),

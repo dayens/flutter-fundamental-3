@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
             sharedPreferences: SharedPreferences.getInstance())),
         )
       ],
-      child: SettingPage(),
+      child: const SettingPage(),
     )
   ];
 

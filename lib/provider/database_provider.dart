@@ -22,7 +22,7 @@ class DatabaseProvider extends ChangeNotifier {
   void _getRestaurant() async {
     _restaurant = await databaseHelper.getRestaurant();
 
-    if (_restaurant.length > 0) {
+    if (_restaurant.isNotEmpty) {
       _state = ResultState.hasData;
     } else {
       _state = ResultState.noData;

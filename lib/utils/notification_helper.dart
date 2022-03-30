@@ -1,11 +1,13 @@
 import 'dart:convert';
+import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:flutter_fundamental_3/data/model/restaurant.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
-
 import '../common/navigation.dart';
 
 final selectNotificationSubject = BehaviorSubject<String>();
+final randomNumber = Random().nextInt(20);
 
 
 class NotificationHelper {
@@ -21,7 +23,7 @@ class NotificationHelper {
       FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin
       ) async {
     var initializationSettingsAndroid =
-        AndroidInitializationSettings('app_icon');
+        const AndroidInitializationSettings('app_icon');
 
     var initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid
@@ -30,7 +32,7 @@ class NotificationHelper {
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
     onSelectNotification: (String? payload) async {
       if (payload != null) {
-        print('notification payload: ' + payload);
+        debugPrint('notification payload: ' + payload);
       }
 
       selectNotificationSubject.add(payload ?? 'empty payload');
@@ -50,7 +52,7 @@ class NotificationHelper {
       importance: Importance.max,
       priority: Priority.high,
       ticker: 'ticker',
-      styleInformation: DefaultStyleInformation(true, true)
+      styleInformation: const DefaultStyleInformation(true, true)
     );
 
     var platformChannelSpecifics = NotificationDetails(
@@ -58,7 +60,7 @@ class NotificationHelper {
     );
 
     var titleNotification = "<b>Restaurant News</b>";
-    var titleNews = restaurants.restaurants[0].name;
+    var titleNews = restaurants.restaurants[randomNumber].name;
 
     await flutterLocalNotificationsPlugin.show(
       0, titleNotification, titleNews, platformChannelSpecifics,
@@ -70,7 +72,7 @@ class NotificationHelper {
     selectNotificationSubject.stream.listen(
         (String payload) async {
           var data = RestaurantResult.fromJson(json.decode(payload));
-          var restaurant = data.restaurants[0];
+          var restaurant = data.restaurants[randomNumber];
           Navigation.intentWithData(route, restaurant);
         }
     );
