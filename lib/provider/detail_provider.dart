@@ -7,7 +7,7 @@ class DetailProvider extends ChangeNotifier {
   final ApiService apiService;
   final String resto;
 
-  DetailProvider ({required this.apiService, required this.resto}) {
+  DetailProvider({required this.apiService, required this.resto}) {
     _fetchDetailRestaurant();
   }
 
@@ -36,7 +36,8 @@ class DetailProvider extends ChangeNotifier {
     } catch (e) {
       _state = ResultState.error;
       notifyListeners();
-      return _message = 'Error --> Failed Load Data, please check your internet connection';
+      return _message =
+          'Error --> Failed Load Data, please check your internet connection';
     }
   }
 }

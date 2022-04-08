@@ -20,5 +20,4 @@ class PreferencesProvider extends ChangeNotifier {
     preferencesHelper.setDailyNews(value);
     _getDailyNewsPreferences();
   }
-
 }

@@ -5,7 +5,8 @@ import '../ui/detail_screen.dart';
 
 class CardRestaurant extends StatelessWidget {
   final Restaurant restaurant;
-  static const String _baseUrlImage = 'https://restaurant-api.dicoding.dev/images/small/';
+  static const String _baseUrlImage =
+      'https://restaurant-api.dicoding.dev/images/small/';
 
   const CardRestaurant({required this.restaurant});
 
@@ -14,7 +15,7 @@ class CardRestaurant extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigation.intentWithData(DetailScreen.routeName, restaurant);
-        },
+      },
       child: Card(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +33,8 @@ class CardRestaurant extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       restaurant.name,
-                      style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 16.0, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 10,
@@ -47,7 +49,11 @@ class CardRestaurant extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
-                            const Icon(Icons.star_rate, color: Colors.orange, size: 16,),
+                            const Icon(
+                              Icons.star_rate,
+                              color: Colors.orange,
+                              size: 16,
+                            ),
                             Text(restaurant.rating)
                           ],
                         ),

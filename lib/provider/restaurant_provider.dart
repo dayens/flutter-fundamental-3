@@ -6,7 +6,7 @@ import '../utils/result_state.dart';
 class RestaurantProvider extends ChangeNotifier {
   final ApiService apiService;
 
-  RestaurantProvider ({required this.apiService}) {
+  RestaurantProvider({required this.apiService}) {
     _fetchAllRestaurant();
   }
 
@@ -35,7 +35,8 @@ class RestaurantProvider extends ChangeNotifier {
     } catch (e) {
       _state = ResultState.error;
       notifyListeners();
-      return _message = 'Error --> Failed Load Data, please check your internet connection';
+      return _message =
+          'Error --> Failed Load Data, please check your internet connection';
     }
   }
 }

@@ -9,29 +9,27 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Setting'),
-      ),
-      body: Consumer<PreferencesProvider>(
-        builder: (context, provider, child) {
-          return Material(
-            child: ListTile(
-              title: const Text('Scheduling News'),
-              trailing: Consumer<SchedulingProvider>(
-                builder: (context, scheduled, _) {
-                  return Switch.adaptive(
-                      value: provider.isDailyNewsActive,
-                      onChanged: (value) async {
-                        scheduled.scheduledNews(value);
-                        provider.enableDailyNews(value);
-                      }
-                  );
-                },
+        appBar: AppBar(
+          title: const Text('Setting'),
+        ),
+        body: Consumer<PreferencesProvider>(
+          builder: (context, provider, child) {
+            return Material(
+              child: ListTile(
+                title: const Text('Scheduling News'),
+                trailing: Consumer<SchedulingProvider>(
+                  builder: (context, scheduled, _) {
+                    return Switch.adaptive(
+                        value: provider.isDailyNewsActive,
+                        onChanged: (value) async {
+                          scheduled.scheduledNews(value);
+                          provider.enableDailyNews(value);
+                        });
+                  },
+                ),
               ),
-            ),
-          );
-        },
-      )
-    );
+            );
+          },
+        ));
   }
 }

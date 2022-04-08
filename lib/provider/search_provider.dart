@@ -40,7 +40,8 @@ class SearchProvider extends ChangeNotifier {
     } catch (e) {
       _state = ResultState.error;
       notifyListeners();
-      return _message = 'Error --> Failed Load Data, please check your internet connection';
+      return _message =
+          'Error --> Failed Load Data, please check your internet connection';
     }
   }
 }

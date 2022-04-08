@@ -9,7 +9,6 @@ import '../widgets/platform_widget.dart';
 class RestaurantListPage extends StatelessWidget {
   const RestaurantListPage({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return PlatformWidget(
@@ -35,7 +34,7 @@ class RestaurantListPage extends StatelessWidget {
     );
   }
 
-  Widget _buildList (BuildContext context) {
+  Widget _buildList(BuildContext context) {
     return Consumer<RestaurantProvider>(
       builder: (context, state, _) {
         if (state.state == ResultState.loading) {
@@ -58,7 +57,7 @@ class RestaurantListPage extends StatelessWidget {
             return Center(
               child: Text(state.message),
             );
-          } else if (state.state == ResultState.error){
+          } else if (state.state == ResultState.error) {
             return Center(
               child: Text(state.message),
             );

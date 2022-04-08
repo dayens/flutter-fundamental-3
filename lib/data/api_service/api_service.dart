@@ -34,8 +34,7 @@ class ApiService {
   }
 
   Future<SearchResult> searchResult(String query) async {
-    final response =
-    await client.get(Uri.parse(baseUrl + _search + query));
+    final response = await client.get(Uri.parse(baseUrl + _search + query));
     if (response.statusCode == 200) {
       return SearchResult.fromJson(json.decode(response.body));
     } else {

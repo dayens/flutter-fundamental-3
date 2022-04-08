@@ -66,7 +66,7 @@ class DatabaseHelper {
     }
   }
 
-  Future<void> removeRestaurant (String id) async {
+  Future<void> removeRestaurant(String id) async {
     final db = await database;
 
     await db!.delete(
